@@ -1,3 +1,6 @@
+
+[![readme](https://img.shields.io/badge/readme.md-📄%20Documentation-blue?style=for-the-badge&logo=github)](...)
+
 # QuadSolutions Credentialing Portal
 
 This is my internship project: a web application for managing credentials.
