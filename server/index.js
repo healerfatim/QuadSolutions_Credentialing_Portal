@@ -103,3 +103,4 @@ app.put('/api/admin/status/:id', async (req, res) => {
 });
 
 app.listen(5000, () => console.log("🚀 BACKEND ENGINE ACTIVE ON PORT 5000"));
+module.exports = app;

@@ -1,0 +1,10 @@
+# Ignore node_modules folders anywhere in the project
+node_modules/
+
+# Ignore environment variable files (security best practice)
+.env
+.env.local
+
+# Ignore Vercel build output
+build/
+.vercel/
