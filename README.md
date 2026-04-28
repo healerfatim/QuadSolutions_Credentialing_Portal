@@ -1,5 +1,7 @@
 # QuadSolutions Credentialing Portal
 
+[![readme](https://img.shields.io/badge/readme.md-📄%20Documentation-blue?style=for-the-badge&logo=github)](https://github.com/healerfatim/QuadSolutions_Credentialing_Portal/blob/main/README.md)
+
 A full-stack web application that streamlines the healthcare provider credentialing process. Healthcare professionals can register, submit credentialing applications, upload supporting documents, and track their request status — while administrators manage and moderate all submissions from a dedicated control panel.
 
 ---
