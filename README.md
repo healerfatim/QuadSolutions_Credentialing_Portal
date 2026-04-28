@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+=======
+
+[![readme](https://img.shields.io/badge/readme.md-📄%20Documentation-blue?style=for-the-badge&logo=github)](...)
+
+>>>>>>> de9579fd7fe7187387a773777fb9146908b3f6be
 # QuadSolutions Credentialing Portal
 
 This is my internship project: a web application for managing credentials.
@@ -28,5 +34,13 @@ This is my internship project: a web application for managing credentials.
 ## 🔌 API Documentation
 - `GET /api/users`: Get all registered users.
 - `POST /api/login`: User authentication.
+<<<<<<< HEAD
 ##   .env mongodb atlas database string fix to run mongodb connection correctly
 .env have mongodb atlas databse string application connection
+=======
+
+##.env.example file:
+PORT=5000
+DATABASE_URL=your_connection_string_here
+SECRET_KEY=your_secret_key_here
+>>>>>>> de9579fd7fe7187387a773777fb9146908b3f6be
