@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -9,7 +10,7 @@ app.use(express.json());
 app.use(cors());
 
 // 1. DATABASE CONNECTION
-const MONGO_URI = 'mongodb+srv://fatimahzeal12_db_user:DV7GKOn2LIBRbRUw@cluster0.e6rdpqs.mongodb.net/QuadSolutionsDB?appName=Cluster0';
+const MONGO_URI = process.env.MONGO_URI;
 mongoose.connect(MONGO_URI)
   .then(() => console.log("✅ SYSTEM: ATLAS DATABASE CONNECTED"))
   .catch(err => console.error("❌ SYSTEM: CONNECTION ERROR", err));
@@ -59,7 +60,7 @@ app.post('/api/auth/login', async (req, res) => {
     if (!user || !(await bcrypt.compare(req.body.password, user.password))) {
       return res.status(401).json({ msg: "Invalid Credentials" });
     }
-    const token = jwt.sign({ id: user._id, role: user.role }, 'JWT_SECRET_KEY');
+    const token = jwt.sign({ id: user._id, role: user.role }, process.env.JWT_SECRET);
     res.json({ token, user: { _id: user._id, name: user.name, role: user.role, email: user.email } });
   } catch (err) { res.status(500).json(err); }
 });
