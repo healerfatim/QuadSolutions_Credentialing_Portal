@@ -31,12 +31,12 @@ const Login = () => {
     setLoading(true);
     try {
       if (role === 'admin') {
-        const res = await axios.get('http://localhost:5000/api/admin/dashboard');
+        const res = await axios.get('/api/admin/dashboard');
         setAdminRequests(res.data.requests);
         setStats({ users: res.data.usersCount, pending: res.data.pendingCount, approved: res.data.approvedCount });
         setView('admin-dashboard');
       } else {
-        const res = await axios.get(`http://localhost:5000/api/requests/user/${userId}`);
+        const res = await axios.get(`/api/requests/user/${userId}`);
         setUserRequests(res.data);
         setView('dashboard');
       }
@@ -53,7 +53,7 @@ const Login = () => {
     const endpoint = isLogin ? 'login' : 'register';
     
     try {
-      const res = await axios.post(`http://localhost:5000/api/auth/${endpoint}`, formData);
+      const res = await axios.post(`/api/auth/${endpoint}`, formData);
       if (isLogin) {
         localStorage.setItem('token', res.data.token);
         localStorage.setItem('userRole', (formData.email === "sk@gmail.com" || res.data.user.role === 'admin') ? 'admin' : 'user');
@@ -73,7 +73,7 @@ const Login = () => {
     if (!selectedFileName) return alert("Please upload a document");
     
     try {
-      await axios.post('http://localhost:5000/api/requests/submit', {
+      await axios.post('/api/requests/submit', {
         userId: localStorage.getItem('userId'),
         userName: localStorage.getItem('userName'),
         type: appType,
@@ -90,7 +90,7 @@ const Login = () => {
 
   const sendSupport = async (e) => {
     e.preventDefault();
-    await axios.post('http://localhost:5000/api/support/ticket', {
+    await axios.post('/api/support/ticket', {
       userId: localStorage.getItem('userId'),
       userName: localStorage.getItem('userName'),
       message: e.target[0].value
@@ -101,7 +101,7 @@ const Login = () => {
 
   // --- 4. MODERATION LOGIC (ADMIN SIDE) ---
   const updateStatus = async (id, status) => {
-    await axios.put(`http://localhost:5000/api/admin/status/${id}`, { status });
+    await axios.put(`/api/admin/status/${id}`, { status });
     syncData();
   };
 
